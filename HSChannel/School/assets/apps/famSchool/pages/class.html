@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>课堂</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+
+		<style>
+			body {
+				background: #ffffff;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
+				border-bottom: 1px solid #2aaa4d;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				color: inherit;
+				border: 0;
+				background: #ffffff;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #2aaa4d;
+				border-bottom: 2px solid #2aaa4d;
+				background: #FFFFFF;
+			}
+			
+			.mui-segmented-control-positive.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #2aaa4d;
+				border-bottom: 2px solid #2aaa4d;
+				background: none;
+				background: #FFFFFF;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted~ .mui-slider-progress-bar {
+				background-color: #2aaa4d;
+			}
+			
+			.mui-slider-group {
+				background: #f4f4f4;
+			}
+			
+			.mui-table-view .mui-media-object {
+				line-height: 63px;
+				max-width: 63px;
+				height: 63px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-slider">
+			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item mui-active" href="#item1">亲子乐园</a>
+				<a class="mui-control-item" href="#item2">专家讲堂</a>
+				<a class="mui-control-item" href="#item3">心理健康</a>
+				<a class="mui-control-item" href="#item4">素质教育</a>
+			</div>
+			<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+			<div class="mui-slider-group">
+				<div id="item1" class="mui-slider-item mui-control-content mui-active" style="padding-top: 10px;">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_1.png">
+								<div class="mui-media-body">
+									幸福
+									<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+									<p><span>2016-08-18</span><span class="mui-pull-right" style="padding-right: 10px;"><img src="../imgs/class/class_icon_like.png" style="width: 15px;"/>赞</span><span class="mui-pull-right"  style="padding-right: 10px;"><img src="../imgs/class/class_icon_comment.png" style="width: 15px;" />回复</span></p>
+								</div> 
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_2.png">
+								<div class="mui-media-body">
+									木屋
+									<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+									<p><span>2016-08-18</span><span class="mui-pull-right" style="padding-right: 10px;"><img src="../imgs/class/class_icon_like.png" style="width: 15px;"/>赞</span><span class="mui-pull-right"  style="padding-right: 10px;"><img src="../imgs/class/class_icon_comment.png" style="width: 15px;" />回复</span></p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_3.png">
+								<div class="mui-media-body">
+									CBD
+									<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+									<p><span>2016-08-18</span><span class="mui-pull-right" style="padding-right: 10px;"><img src="../imgs/class/class_icon_like.png" style="width: 15px;"/>赞</span><span class="mui-pull-right"  style="padding-right: 10px;"><img src="../imgs/class/class_icon_comment.png" style="width: 15px;" />回复</span></p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="item2" class="mui-slider-item mui-control-content" style="padding-top: 10px;background-color: #F4F4F4;">
+					<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+						<li class="mui-table-view-cell">
+							<div class="mui-table">
+								<div class="mui-table-cell mui-col-xs-10">
+									<h4 class="mui-ellipsis">信息化推进办公室张彦合同付款信息化</h4>
+									<h5>申请人：李四</h5>
+									<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+								</div>
+								<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+									<span class="mui-h5">12:25</span>
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-table">
+								<div class="mui-table-cell mui-col-xs-10">
+									<h4 class="mui-ellipsis-2">信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款</h4>
+									<h5>申请人：李四</h5>
+									<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+								</div>
+								<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+									<span class="mui-h5">12:25</span>
+
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-table">
+								<div class="mui-table-cell mui-col-xs-10">
+									<h4 class="mui-ellipsis-2">信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款</h4>
+									<h5>申请人：李四</h5>
+									<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+								</div>
+								<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+									<span class="mui-h5">12:25</span>
+
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-table">
+								<div class="mui-table-cell mui-col-xs-10">
+									<h4 class="mui-ellipsis-2">信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款</h4>
+									<h5>申请人：李四</h5>
+									<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+								</div>
+								<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+									<span class="mui-h5">12:25</span>
+
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-table">
+								<div class="mui-table-cell mui-col-xs-10">
+									<h4 class="mui-ellipsis-2">信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款信息化推进办公室张彦合同付款</h4>
+									<h5>申请人：李四</h5>
+									<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+								</div>
+								<div class="mui-table-cell mui-col-xs-2 mui-text-right">
+									<span class="mui-h5">12:25</span>
+
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="item3" class="mui-slider-item mui-control-content" style="padding-top: 10px;">
+					<ul class="mui-table-view mui-text-center" style="padding: 50px;">
+						心理健康
+					</ul>
+					<!--<ul class="mui-table-view">
+						<li class="mui-table-view-cell">第3个选项卡子项</li>
+						<li class="mui-table-view-cell">第3个选项卡子项</li>
+					</ul>-->
+				</div>
+				<div id="item4" class="mui-slider-item mui-control-content" style="padding-top: 10px;">
+					<ul class="mui-table-view mui-text-center" style="padding: 50px;">
+						素质教育
+					</ul>
+					<!--<ul class="mui-table-view">
+						<li class="mui-table-view-cell">第4个选项卡子项</li>
+						<li class="mui-table-view-cell">第4个选项卡子项</li>
+					</ul>-->
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

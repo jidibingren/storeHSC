@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0bab0454-5ccf-400a-8ddd-538ba953aec3++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "0bab0454-5ccf-400a-8ddd-538ba953aec3++505" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0bab0454-5ccf-400a-8ddd-538ba953aec3++505" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3358B006-4C05-4F34-8611-195DFB18CD94",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0bab0454-5ccf-400a-8ddd-538ba953aec3++505" : "jiaxiaotong_iOS%20(trunk)\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HSChannel",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HSChannel.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/code.taobao.org\/svn\/jiaxiaotong_iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0bab0454-5ccf-400a-8ddd-538ba953aec3++505"
+    }
+  ]
+}

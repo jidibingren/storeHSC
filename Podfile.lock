@@ -1,0 +1,167 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - CSLinearLayoutView (1.0)
+  - CYLTabBarController-JDBR (0.0.1)
+  - DACircularProgress (2.3.1)
+  - DCKeyValueObjectMapping (1.5)
+  - DTKDropdownMenu-JDBR (0.5):
+    - BlocksKit (~> 2.2.5)
+    - Masonry (~> 0.6.4)
+  - EaseUI (3.1.3):
+    - MJRefresh (~> 3.1.0)
+    - MWPhotoBrowser (~> 2.1.1)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - FZAccordionTableView (0.2.3)
+  - GDIIndexBar (0.3.5)
+  - HCSStarRatingView (1.4.5)
+  - HyphenateFullSDK (3.1.5)
+  - ICViewPager (1.5.1)
+  - JCAlertView (1.1.5)
+  - JDBRDropdownMenu (0.1.4):
+    - DCKeyValueObjectMapping (~> 1.5)
+  - JDModel (0.0.3):
+    - FMDB (~> 2.0)
+  - JKSearchBar (0.0.2)
+  - KVOController (1.1.0)
+  - LGAlertView (2.0.13)
+  - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - MLLabel (1.10.1)
+  - MWPhotoBrowser (2.1.2):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
+  - PEPhotoCropEditor (1.3.1)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SWPinYinSearcher-JDBR (0.0.3)
+  - SWTableViewCell (0.3.7)
+  - SZTextView (1.2.2)
+  - TPKeyboardAvoiding (1.2.11)
+  - TZImagePickerController (1.6.4)
+  - UIImage-Resize (1.0.1)
+  - WMPageController (1.6.9)
+  - YYCache (1.0.3)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - BlocksKit (~> 2.2.5)
+  - CSLinearLayoutView (~> 1.0)
+  - CYLTabBarController-JDBR (~> 0.0.1)
+  - DTKDropdownMenu-JDBR (~> 0.2)
+  - EaseUI (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
+  - FZAccordionTableView (~> 0.2.2)
+  - GDIIndexBar (~> 0.3.5)
+  - HCSStarRatingView (~> 1.4.5)
+  - HyphenateFullSDK (~> 3.1.4)
+  - ICViewPager (~> 1.5.1)
+  - JCAlertView (~> 1.1.5)
+  - JDBRDropdownMenu (~> 0.1.0)
+  - JDModel (~> 0.0.2)
+  - JKSearchBar (~> 0.0.1)
+  - KVOController (~> 1.1.0)
+  - LGAlertView (~> 2.0.13)
+  - Masonry (~> 0.6.4)
+  - MBProgressHUD (~> 0.9.1)
+  - MJRefresh (~> 3.1.0)
+  - MLLabel (~> 1.0)
+  - PEPhotoCropEditor (~> 1.3.1)
+  - ReactiveCocoa (~> 2.0)
+  - SDWebImage (~> 3.7.2)
+  - SWPinYinSearcher-JDBR (~> 0.0.1)
+  - SWTableViewCell (~> 0.3.7)
+  - SZTextView (~> 1.2.1)
+  - TPKeyboardAvoiding (~> 1.2.6)
+  - TZImagePickerController (~> 1.0)
+  - UIImage-Resize (~> 1.0.1)
+  - WMPageController (~> 1.6.0)
+  - YYCache (~> 1.0.3)
+
+EXTERNAL SOURCES:
+  EaseUI:
+    :git: https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git
+
+CHECKOUT OPTIONS:
+  EaseUI:
+    :commit: 506057037568177b87743e031ed4578c5c6d0935
+    :git: https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CSLinearLayoutView: ce5a4b49267e0a5820203659045f42c0d1faab64
+  CYLTabBarController-JDBR: 049079a353f00f6760bebcbe5d51b60a63b0206b
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DCKeyValueObjectMapping: c2eb5a6529da100b2e49ef6a599663578051f077
+  DTKDropdownMenu-JDBR: c6e205400bbe21ec8fd26e430f4ea66262608952
+  EaseUI: 2892e127ec851abda5895ee848ab42930e30a442
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FZAccordionTableView: e64f49c71c32d750feda14025b088bcd25d1a71f
+  GDIIndexBar: 38a250ad02cea73fcb50a1cdad815b726a13a39e
+  HCSStarRatingView: bff3f89314d3b5013ce826ea11897d3129ff6b8c
+  HyphenateFullSDK: 536f76eeb0914dba766b1d5d30dee083f0805da2
+  ICViewPager: 032dc71a50fe898e185fae6112ded4bed0e0523c
+  JCAlertView: c65a7b298b8b497b3db783d82f719b88f4914869
+  JDBRDropdownMenu: 38304717c5e035c425d37a6179211ed95ebc2403
+  JDModel: 222fb45263d9166e96b250a992b754de2e1f875d
+  JKSearchBar: cac390689f3ba89f1b7c1179ca407466c2f5a4af
+  KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
+  LGAlertView: 9a5dcbf4f81b02b718083539d7f222280adc9547
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MLLabel: 9929df486957b30317f76122f0b087d932af094f
+  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  PEPhotoCropEditor: 613292fce009efd085e7aed975f1ebb3fec8bb7b
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SWPinYinSearcher-JDBR: 19978c80333fc375d6899929cc5ab0d829b35e43
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
+  TZImagePickerController: e13a695a4623a94ac094b43baa28f8046d6a29f9
+  UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
+  WMPageController: 38eea9daebfb12d495b8063e15df64cd6aadc400
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+
+COCOAPODS: 0.39.0

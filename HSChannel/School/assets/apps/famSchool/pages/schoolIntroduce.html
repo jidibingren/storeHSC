@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+	<style>
+		.mui-btn-green,
+		.mui-btn-positive,
+		.mui-btn-success {
+			border: 1px solid #2AAA4D;
+		}
+	</style>
+
+	<body>
+
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!--支持循环，需要重复图片节点-->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../imgs/school_pic_1.png" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../imgs/story_pic_1.png" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../imgs/story_pic_2.png" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="../imgs/story_pic_3.png" /></a>
+				</div>
+				<!--支持循环，需要重复图片节点-->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="../imgs/story_pic_1.png" /></a>
+				</div>
+			</div>
+
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<div class="mui-content" style="padding: 15px;background-color: #ffffff ;">
+			<div>
+				<img class="mui-pull-left" src="../imgs/icon_school_summary.png" style="height: 25px;"><span style="line-height: 25px;height: 25px;padding-top: 10px;padding-left: 10px;">学校简介</span>
+			</div>
+			<p style="margin-left: 35px;">小学生托管教育第一品牌 书香源一直致力于为7－12岁小学生提供专业、完整、高品质的教育解决方案；以托管教育为核心业务，融合素质课程，致力于为社会和家庭培养健康、自信、有竞...</p>
+
+			<img class="mui-pull-left" src="../imgs/icon_address.png" style="height: 25px;">
+			<div>
+				<span style="line-height: 25px;height: 25px;padding-top: 10px;padding-left: 10px;">地址</span>
+				<p style="margin-left: 35px;">山东省济南市花园东路力高国际3号楼7层</p>
+			</div>
+		</div>
+		<div style="padding-top: 20px;margin: 0 20px;">
+			<a class="mui-btn mui-btn-block mui-btn-success" style="text-decoration:none;color:#ffffff;display:block;background-color: #2aaa4d;padding: 10px 0;" href="tel:10086">联系我们</a>
+		</div>
+
+		<script type="text/javascript">
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+
+		<script type="text/javascript">
+			// H5 plus事件处理
+			function plusReady() {
+				// 弹出系统提示对话框
+				plus.nativeUI.alert("Plus is ready!", function() {
+					console.log("User pressed!");
+				}, "nativeUI", "OK");
+			}
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+
+			plusReady();
+		</script>
+	</body>
+
+</html>

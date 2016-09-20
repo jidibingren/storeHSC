@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>校园新闻</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+
+		<style>
+			body {
+				background: #ffffff;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
+				border-bottom: 1px solid #2aaa4d;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				color: inherit;
+				border: 0;
+				background: #ffffff;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #2aaa4d;
+				border-bottom: 2px solid #2aaa4d;
+				background: #FFFFFF;
+			}
+			
+			.mui-segmented-control-positive.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #2aaa4d;
+				border-bottom: 2px solid #2aaa4d;
+				background: none;
+				background: #FFFFFF;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted~ .mui-slider-progress-bar {
+				background-color: #2aaa4d;
+			}
+			
+			.mui-slider-group {
+				background: #f4f4f4;
+			}
+			
+			.mui-table-view .mui-media-object {
+				line-height: 63px;
+				max-width: 63px;
+				height: 63px;
+			}
+			
+			.mui-ellipsis {
+				color: #666666;
+				white-space: normal;
+				max-height: 40px;
+				 overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_3.png">
+
+					<div class="mui-media-body">
+						<span>刘海</span>
+
+						<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.烤炉模式的城，到黄昏，如同打翻的调色盘一般.烤炉模式的城，到黄昏，如同打翻的调色盘一般.烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_3.png">
+
+					<div class="mui-media-body">
+						Angeia
+						<p class='mui-ellipsis'>关于郊游注意事项</p>
+
+					</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="../imgs/class/class_head_3.png">
+
+					<div class="mui-media-body">
+						陈海波
+						<p class='mui-ellipsis'>食堂修改计划</p>
+
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>
