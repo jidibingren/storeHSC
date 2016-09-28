@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad{
     
-    self.title = @"";
+    self.title = @"相册";
     
     self.url = HSC_URL_ALBUM_LIST;
     

@@ -387,7 +387,7 @@ STD_PROP SCCustomCameraControl *customCamerControl;
     cameraOverlayView.image = image;
     
     UIImageView *scanImageView = [[UIImageView alloc]initWithFrame:tempFrame];
-    scanImageView.image = [UIImage imageNamed:@"scan_bg"];
+    scanImageView.image = [UIImage sc_imageNamed:KSCImageImageSelectorScan];
     [cameraOverlayView addSubview:scanImageView];
     
     if ([_attrs valueForKey:kCameraOverlayViewNote]) {

@@ -100,7 +100,7 @@
     } else {
         self.navigationController.navigationBar.tintColor = bgColor;
     }
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navibackground"] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage sc_imageNamed:KSCImageNavibackground] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
     // title color

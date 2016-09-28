@@ -14,7 +14,7 @@
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         
-        self.image = [UIImage imageNamed:@"LikeCmtBg"];
+        self.image = [UIImage sc_imageNamed:KSCImageMomentsCellCommentBg];
         
         _tableView = [[SCMomentsCellCommentTableView alloc] init];
         

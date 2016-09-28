@@ -188,8 +188,8 @@
                            modelForMessage:(EMMessage *)message{
     
     id<IMessageModel> model = [[EaseMessageModel alloc] initWithMessage:message];
-    model.avatarImage = [UIImage imageNamed:@"EaseUIResource.bundle/user"];
-    model.failImageName = @"imageDownloadFail";
+    model.avatarImage = [UIImage sc_imageNamed:KSCImageMessageViewControllerAvatar];
+    model.failImageName = KSCImageMessageViewControllerFailed;
     
     if (![Utils isValidStr:model.avatarURLPath]) {
         model.avatarURLPath = message.ext[SCFromAvatarURLPath];

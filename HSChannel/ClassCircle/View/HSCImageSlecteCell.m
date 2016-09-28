@@ -53,7 +53,7 @@
     }];
     
     _deleteBtn = [[UIButton alloc]init];
-    [_deleteBtn setBackgroundImage:[UIImage imageNamed:@"moments_icon_del"] forState:UIControlStateNormal];
+    [_deleteBtn setBackgroundImage:[UIImage sc_imageNamed:KSCImageImageSelectCellDeleteButtonNormal] forState:UIControlStateNormal];
     [self.contentView addSubview:_deleteBtn];
     [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(_iconView.mas_right);
@@ -114,7 +114,7 @@
     
     UIImageView * backgroundImageView = [[UIImageView alloc]initWithFrame:tempFrame];
     backgroundImageView.contentMode = UIViewContentModeScaleToFill;
-    backgroundImageView.image = [UIImage imageNamed:@"daohangbeijing"];
+    backgroundImageView.image = [UIImage sc_imageNamed:KSCImageImageSelectCellBackground];
     //    self.backgroundView = backgroundImageView;
     [_collectionView setBackgroundView:backgroundImageView];
     
@@ -154,7 +154,7 @@
     
     if (indexPath.row == 0) {
         
-        cell.iconView.image  = [UIImage imageNamed:@"moments_icon_addpic"];
+        cell.iconView.image  = [UIImage sc_imageNamed:KSCImageImageSelectCellIconView];
         [cell.deleteBtn setHidden:YES];
         cell.indexPath = indexPath;
         cell.delegate = self;

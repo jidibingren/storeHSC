@@ -12,6 +12,7 @@
 #ifdef SC_TP_UITABLEVIEW_NXEMPTYVIEW
 @interface SCTableViewController : SCBaseViewController<UITableViewDataSource, UITableViewDelegate, UITableViewNXEmptyViewDataSource>
 #else
+
 @interface SCTableViewController : SCBaseViewController<UITableViewDataSource, UITableViewDelegate>
 #endif
 @property (nonatomic) BOOL dataRequestedOnce;

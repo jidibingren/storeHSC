@@ -37,8 +37,8 @@
     }];
     
     _checkBtn = [UIButton new];
-    [_checkBtn setBackgroundImage:[UIImage imageNamed:@"attendance_icon_none"] forState:UIControlStateNormal];
-    [_checkBtn setBackgroundImage:[UIImage imageNamed:@"attendance_icon_ok"] forState:UIControlStateSelected];
+    [_checkBtn setBackgroundImage:[UIImage sc_imageNamed:KSCImageAttendanceRecordCellUncheck] forState:UIControlStateNormal];
+    [_checkBtn setBackgroundImage:[UIImage sc_imageNamed:KSCImageAttendanceRecordCellCheck] forState:UIControlStateSelected];
     [tempView addSubview:_checkBtn];
     [_checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);

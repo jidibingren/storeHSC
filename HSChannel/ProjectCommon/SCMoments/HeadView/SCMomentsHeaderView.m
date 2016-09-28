@@ -26,13 +26,13 @@
 - (void)setup
 {
     _backgroundImageView = [UIImageView new];
-    _backgroundImageView.image = [UIImage imageNamed:@"AlbumHeaderBackgrounImage.jpg"];
+    _backgroundImageView.image = [UIImage sc_imageNamed:KSCImageMomentsHeaderViewBackground];
     _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     typeof(self) __weak weakSelf = self;
     _iconView = [UIImageView new];
     _iconView.userInteractionEnabled = YES;
-    _iconView.image = [UIImage imageNamed:@"me.jpg"];
+    _iconView.image = [UIImage sc_imageNamed:KSCImageMomentsHeaderViewIcon];
     _iconView.layer.borderColor = [UIColor whiteColor].CGColor;
     _iconView.layer.borderWidth = 3;
 //    [_iconView setTapActionWithBlock:^{

@@ -136,31 +136,31 @@
         switch (data.type) {
             case 0:
                 
-                [_signedPhotoView setImage:[UIImage imageNamed:@"message_icon_notice"]];
+                [_signedPhotoView setImage:[UIImage sc_imageNamed:KSCImageMessageCellSystemNotice]];
                 _nameLabel.text = @"系统消息";
                 
                 break;
             case 1:
                 
-                [_signedPhotoView setImage:[UIImage imageNamed:@"message_icon_work"]];
+                [_signedPhotoView setImage:[UIImage sc_imageNamed:KSCImageMessageCellSchoolNotice]];
                 _nameLabel.text = data.typeName;
                 
                 break;
             case 2:
                 
-                [_signedPhotoView setImage:[UIImage imageNamed:@"message_icon_work"]];
+                [_signedPhotoView setImage:[UIImage sc_imageNamed:KSCImageMessageCellClassNotice]];
                 _nameLabel.text = data.typeName;
                 
                 break;
             case 3:
                 
-                [_signedPhotoView setImage:[UIImage imageNamed:@"message_icon_work"]];
+                [_signedPhotoView setImage:[UIImage sc_imageNamed:KSCImageMessageCellClassDynamic]];
                 _nameLabel.text = data.typeName;
                 
                 break;
             case 4:
                 
-                [_signedPhotoView setImage:[UIImage imageNamed:@"message_icon_work"]];
+                [_signedPhotoView setImage:[UIImage sc_imageNamed:KSCImageMessageCellWork]];
                 _nameLabel.text = data.typeName;
                 
                 break;
@@ -174,7 +174,7 @@
         
     }else{
         
-        [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.imgUrl] ? data.imgUrl : @""] placeholderImage:[UIImage imageNamed:@"message_head_default"]];
+        [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.imgUrl] ? data.imgUrl : @""] placeholderImage:[UIImage sc_imageNamed:KSCImageMessageCellHeadDefault]];
         _nameLabel.text = [Utils isValidStr:data.title] ? data.title : data.fromUsername;
         _numberLabel.text = @(data.unreadCount).description;
         [_numberLabel setHidden:data.unreadCount == 0];

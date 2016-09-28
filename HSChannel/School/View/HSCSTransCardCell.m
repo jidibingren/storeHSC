@@ -31,7 +31,7 @@
     
     _rightImageView = [UIImageView new];
     _rightImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _rightImageView.image = [UIImage imageNamed:@"icon_delete"];
+    _rightImageView.image = [UIImage sc_imageNamed:KSCImageSTransCardCellIconDelete];
     _rightImageView.userInteractionEnabled = YES;
     [tempView addSubview:_rightImageView];
     [_rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,7 +76,7 @@
     self.indexPath = indexPath;
     
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@  %@  %@", [Utils groupText:data.transCard seperator:@" " groupLength:4], data.name, data.className];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@  %@  %@", [Utils groupText:data.stuCode seperator:@" " groupLength:4], data.stuName, data.className];
     
 }
 

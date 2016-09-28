@@ -74,12 +74,12 @@
 
 - (NSArray<SCMomentsCellLikeItemModel *> *)likeItemsArray{
     
-    return nil;
+    return _likesArray;
     
 }
 
 -(void)setLikeItemsArray:(NSArray<SCMomentsCellLikeItemModel *> *)likeItemsArray{
-    
+    _likesArray = likeItemsArray;
 }
 
 - (NSArray<SCMomentsCellCommentItemModel *> *)commentItemsArray{
@@ -102,7 +102,32 @@
 }
 
 - (NSMutableAttributedString *)likesStr{
-    return nil;
+    NSTextAttachment *attach = [NSTextAttachment new];
+    attach.image = [UIImage sc_imageNamed:KSCImageMomentsModelAttack];
+    attach.bounds = CGRectMake(0, -3, 16, 16);
+    NSAttributedString *likeIcon = [NSAttributedString attributedStringWithAttachment:attach];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:likeIcon];
+    
+    for (int i = 0; i < self.likeItemsArray.count; i++) {
+        SCMomentsCellLikeItemModel *model = self.likeItemsArray[i];
+        if (i > 0) {
+            [attributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@"，"]];
+        }
+        [attributedText appendAttributedString:[self generateAttributedStringWithLikeItemModel:model]];
+        ;
+    }
+    
+    return attributedText;
+}
+
+- (NSMutableAttributedString *)generateAttributedStringWithLikeItemModel:(SCMomentsCellLikeItemModel *)model
+{
+    NSString *text = model.userName;
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:text];
+    UIColor *highLightColor = [SCColor getColor:SC_COLOR_NAV_BG];
+    [attString setAttributes:@{NSForegroundColorAttributeName : highLightColor, NSLinkAttributeName : model.userId} range:[text rangeOfString:model.userName]];
+    
+    return attString;
 }
 
 - (NSArray *)picNamesArray{

@@ -24,11 +24,14 @@ STD_PROP NSTimer *timer;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[SCProjects sharedInstance] setCurrentProjectByIndex:0];
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [[SCRootViewController alloc]initWithType:SCRootControllerDefault];
+    self.window.rootViewController = [[SCRootViewController alloc]init];
     
     [self.window makeKeyAndVisible];
+    
     
     EMOptions *options = [EMOptions optionsWithAppkey:EASE_APP_KEY];
     options.isAutoLogin = NO;

@@ -135,7 +135,7 @@
     
     UIImageView *readImageView = [UIImageView new];
     readImageView.contentMode = UIViewContentModeScaleAspectFit;
-    readImageView.image = [UIImage imageNamed:@"icon_title"];
+    readImageView.image = [UIImage sc_imageNamed:KSCImageSysNoticeDetailControllerIconTitle];
     [readView addSubview:readImageView];
     [readImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(readView);

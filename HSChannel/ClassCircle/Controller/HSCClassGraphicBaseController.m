@@ -224,17 +224,23 @@ static CGFloat textFieldH = 40;
     }
     _pageNo += 1;
     
+    NSMutableArray *tempArray = [NSMutableArray new];
     for (NSDictionary * item in array) {
         HSCMessageModel* model = [[_modelClass alloc] init];
         if ([item isKindOfClass:[NSDictionary class]]){
             [model updateWithDictionary:item];
             HSCCGMomentsViewModel *viewModel = [[_viewModelClass alloc]init];
             viewModel.model = model;
-            [_viewModelsArray addObject:viewModel];
+            [tempArray addObject:viewModel];
         }
     }
-    [self.tableView reloadData];
-    [self endRefreshing: newer];
+    
+    [_viewModelsArray addObjectsFromArray:tempArray];
+    
+    [self requestReplaySync:tempArray newer:newer];
+//    
+//    [self.tableView reloadData];
+//    [self endRefreshing: newer];
 }
 
 // loadData, newer: 请求更加新的数据
@@ -306,7 +312,7 @@ static CGFloat textFieldH = 40;
         }];
     }
     
-    SCMomentsViewModel *viewModel = self.viewModelsArray[indexPath.row];
+    HSCCGMomentsViewModel *viewModel = self.viewModelsArray[indexPath.row];
     cell.viewModel = viewModel;
     
     return cell;
@@ -359,27 +365,30 @@ static CGFloat textFieldH = 40;
 - (void)didClickcCommentButtonInCell:(SCMomentsCell *)cell
 {
     
-    HSCCGMomentsViewModel *viewModel = cell.viewModel;
+//    HSCCGMomentsViewModel *viewModel = cell.viewModel;
+//    
+//    if (viewModel.isCommentOpening) {
+//        
+//        [self startCommentText:nil commentModel:nil inCell:cell];
+//        
+//        return;
+//        
+//        viewModel.isCommentOpening = NO;
+//        
+//        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    }else{
+//        
+//        [self requestReplayWith:viewModel indexPath:cell.indexPath];
+//        
+//    }
     
-    if (viewModel.isCommentOpening) {
-        
-        [self startCommentText:nil commentModel:nil inCell:cell];
-        
-        return;
-        
-        viewModel.isCommentOpening = NO;
-        
-        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }else{
-        
-        [self requestReplayWith:viewModel indexPath:cell.indexPath];
-        
-    }
+    [self startCommentText:nil commentModel:nil inCell:cell];
     
     //    [_textField becomeFirstResponder];
     //    _currentEditingIndexthPath = [self.tableView indexPathForCell:cell];
     //    [self adjustTableViewToFitKeyboard];
 }
+
 - (void)didTapedComment:(SCMomentsCellCommentItemModel *)commentModel inCell:(SCMomentsCell *)cell{
     
     [self startCommentText:nil commentModel:commentModel inCell:cell];
@@ -460,6 +469,96 @@ static CGFloat textFieldH = 40;
     
     _cell = nil;
 
+    
+}
+
+- (void)requestReplaySync:(NSArray *)viewModels newer:(BOOL)newer{
+    
+    if (viewModels.count <= 0) {
+        
+        [self.tableView reloadData];
+        [self endRefreshing: newer];
+        
+        return;
+    }
+    
+    __block dispatch_queue_t queue = dispatch_queue_create("HSCLoadReplayQueue", 0);
+    
+    __block NSInteger count = viewModels.count;
+    
+    for (HSCCGMomentsViewModel *viewModel in viewModels) {
+        
+        DEFINE_WEAK(viewModel);
+        NSMutableDictionary *params = [NSMutableDictionary new];
+        params[@"noticeId"] = viewModel.model.id;
+        
+        [SCHttpTool postWithURL:HSC_URL_NOTICE_REPLY params:params success:^(NSDictionary *json) {
+            if ([Utils isValidArray:[json valueForKeyPath:@"info.reply"]]) {
+                
+                NSMutableArray *tempArray = [NSMutableArray new];
+                NSMutableSet *likeIdSet = [NSMutableSet new];
+                NSMutableArray *likeItemArray = [NSMutableArray new];
+                
+                for (NSDictionary *dict in [json valueForKeyPath:@"info.reply"]) {
+                    
+                    HSCCGReplyModel *model = [[HSCCGReplyModel alloc]initWithDictionary:dict];
+                    HSCCGMomentsCommentModel *commentModel = [HSCCGMomentsCommentModel new];
+                    commentModel.model = model;
+                    
+                    [tempArray addObject:commentModel];
+                    
+//                    if (![likeIdSet containsObject:model.username]) {
+//                        [likeIdSet addObject:model.username];
+//                        SCMomentsCellLikeItemModel *likeItem = [SCMomentsCellLikeItemModel new];
+//                        likeItem.userName = model.name;
+//                        likeItem.userId = model.username;
+//                        [likeItemArray addObject:likeItem];
+//                    }
+                    
+                }
+                
+                wviewModel.commentsArray = tempArray;
+                
+                wviewModel.model.replyCount = tempArray.count;
+                
+                wviewModel.likeItemsArray = likeItemArray;
+                
+                wviewModel.isCommentOpening = YES;
+                
+            }
+            
+            dispatch_async(queue, ^{
+                
+                count--;
+                
+                if (count <= 0) {
+                    
+                    dispatch_main_async_safe(^{
+                        
+                        [self.tableView reloadData];
+                        [self endRefreshing: newer];
+                        
+                    });
+                }
+            });
+            
+        } failure:^(NSError *error) {
+            dispatch_async(queue, ^{
+                
+                count--;
+                
+                if (count <= 0) {
+                    
+                    dispatch_main_async_safe(^{
+                        
+                        [self.tableView reloadData];
+                        [self endRefreshing: newer];
+                        
+                    });
+                }
+            });
+        }];
+    }
     
 }
 

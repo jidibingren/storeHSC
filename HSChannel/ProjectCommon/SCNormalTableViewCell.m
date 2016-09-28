@@ -53,7 +53,7 @@
     
     _rightIcon = [UIImageView new];
     _rightIcon.contentMode = UIViewContentModeScaleAspectFit;
-    _rightIcon.image = [UIImage imageNamed:@"moments_icon_more"];
+    _rightIcon.image = [UIImage sc_imageNamed:KSCImageNormalTableViewCellMore];
     [tempView addSubview:_rightIcon];
     [_rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -132,17 +132,17 @@
             
             if ([Utils isValidStr:data.rightImageName]) {
                 
-                [_rightImageView sd_setImageWithURL:[NSURL URLWithString:data.rightImageName] placeholderImage:[UIImage imageNamed:@"real_icon_head"]];
+                [_rightImageView sd_setImageWithURL:[NSURL URLWithString:data.rightImageName] placeholderImage:[UIImage sc_imageNamed:KSCImageNormalTableViewCellRightView]];
                 
             }else{
-                _rightImageView.image = [UIImage imageNamed:@"real_icon_head"];
+                _rightImageView.image = [UIImage sc_imageNamed:KSCImageNormalTableViewCellRightView];
             }
             
         }
         
         [_rightImageView setHidden:!data.isImageSelect];
         
-        _rightIcon.image = [UIImage imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:@"moments_icon_more"];
+        _rightIcon.image = [UIImage sc_imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:KSCImageNormalTableViewCellMore];
         
         [_rightIcon setHidden:data.dontShowRightArrow];
     }
@@ -483,7 +483,7 @@
     
     _rightIcon = [UIImageView new];
     _rightIcon.contentMode = UIViewContentModeScaleAspectFit;
-    _rightIcon.image = [UIImage imageNamed:@"moments_icon_more"];
+    _rightIcon.image = [UIImage sc_imageNamed:KSCImageNormalTableViewCellMore];
     [tempView addSubview:_rightIcon];
     [_rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -515,7 +515,7 @@
         
         self.indexPath = indexPath;
         
-        _leftIcon.image = [UIImage imageNamed:data.leftIconName];
+        _leftIcon.image = [UIImage sc_imageNamed:data.leftIconName];
         
         [_newsLabel setHidden:data.newsCount <= 0];
         
@@ -523,16 +523,16 @@
         
         if (![Utils isValidStr:self.cellData.rightIconName] || ![Utils isValidStr:self.cellData.rightIconSelectedName]) {
             
-            _rightIcon.image = [UIImage imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:@"moments_icon_more"];
+            _rightIcon.image = [UIImage sc_imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:KSCImageNormalTableViewCellMore];
         }else{
             
             if (self.isSelected) {
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconSelectedName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconSelectedName];
                 
             }else{
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconName];
                 
             }
         }
@@ -577,7 +577,7 @@
     
     _rightIcon = [UIImageView new];
     _rightIcon.contentMode = UIViewContentModeScaleAspectFit;
-    _rightIcon.image = [UIImage imageNamed:@"real_icon_right"];
+    _rightIcon.image = [UIImage sc_imageNamed:KSCImageNormalTableViewCellRightView];
     [tempView addSubview:_rightIcon];
     [_rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -622,16 +622,16 @@
         
         if (![Utils isValidStr:self.cellData.rightIconName] || ![Utils isValidStr:self.cellData.rightIconSelectedName]) {
             
-            _rightIcon.image = [UIImage imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:@"moments_icon_more"];
+            _rightIcon.image = [UIImage sc_imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:KSCImageNormalTableViewCellMore];
         }else{
             
             if (self.isSelected) {
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconSelectedName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconSelectedName];
                 
             }else{
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconName];
                 
             }
         }
@@ -805,7 +805,7 @@
     
     _rightIcon = [UIImageView new];
     _rightIcon.contentMode = UIViewContentModeScaleAspectFit;
-    _rightIcon.image = [UIImage imageNamed:@"real_icon_right"];
+    _rightIcon.image = [UIImage sc_imageNamed:KSCImageNormalTableViewCellRightView];
     [tempView addSubview:_rightIcon];
     [_rightIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -844,7 +844,7 @@
     if ([data isKindOfClass:[SCNormalCellData class]]) {
         _cellData = data;
         
-        self.leftIcon.image = [UIImage imageNamed:data.leftIconName];
+        self.leftIcon.image = [UIImage sc_imageNamed:data.leftIconName];
         self.leftTitle.text = data.leftTitle;
         self.middleTextField.placeholder = data.placeholder;
         self.middleTextField.text = data.middleText;
@@ -852,16 +852,16 @@
         
         if (![Utils isValidStr:self.cellData.rightIconName] || ![Utils isValidStr:self.cellData.rightIconSelectedName]) {
             
-            _rightIcon.image = [UIImage imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:@"moments_icon_more"];
+            _rightIcon.image = [UIImage sc_imageNamed:[Utils isValidStr:data.rightIconName]?data.rightIconName:KSCImageNormalTableViewCellMore];
         }else{
             
             if (self.isSelected) {
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconSelectedName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconSelectedName];
                 
             }else{
                 
-                self.rightIcon.image = [UIImage imageNamed:self.cellData.rightIconName];
+                self.rightIcon.image = [UIImage sc_imageNamed:self.cellData.rightIconName];
                 
             }
         }

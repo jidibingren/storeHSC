@@ -30,7 +30,7 @@
 
 - (void)changeStatus{
 //    [self.tableView reloadData];
-    [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage imageNamed:@"me_icon_head"]];
+    [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage sc_imageNamed:KSCImageMineIconHead]];
     
     _nameLabel.text = userInfo.accountInfo.name;
     
@@ -64,12 +64,12 @@
     
     NSArray *section0Data = @[
                               @{
-                                  @"leftIconName"  : @"me_icon_album",
+                                  @"leftIconName"  : KSCImageMineControllerAlbum,
                                   @"leftTitle"     : @"相册",
                                   
                                   },
                               @{
-                                  @"leftIconName"  : @"me_icon_leave",
+                                  @"leftIconName"  : KSCImageMineControllerLeave,
                                   @"leftTitle"     : @"请假记录",
                                   
                                   },
@@ -78,7 +78,7 @@
     if ([SCUserInfo sharedInstance].accountInfo.userType == 1) {
         section0Data = @[
                          @{
-                             @"leftIconName"  : @"me_icon_album",
+                             @"leftIconName"  : KSCImageMineControllerAlbum,
                              @"leftTitle"     : @"相册",
                              
                              },
@@ -88,17 +88,17 @@
     
     NSArray *section1Data = @[
                               @{
-                                  @"leftIconName"  : @"me_icon_share",
+                                  @"leftIconName"  : KSCImageMineControllerShare,
                                   @"leftTitle"     : @"分享给好友",
                                   
                                   },
                               @{
-                                  @"leftIconName"  : @"me_icon_feedback",
+                                  @"leftIconName"  : KSCImageMineControllerFeedback,
                                   @"leftTitle"     : @"意见反馈",
                                   
                                   },
                               @{
-                                  @"leftIconName"  : @"me_icon_about",
+                                  @"leftIconName"  : KSCImageMineControllerAbout,
                                   @"leftTitle"     : @"关于书香源",
                                   
                                   },
@@ -112,7 +112,7 @@
     
     [self.observer observe:userInfo keyPath:@"accountInfo" blockForNew:^(HSCMineController *  _Nullable observer, id  _Nonnull object, SCAccountInfo *  _Nonnull change) {
         
-        [observer.signedPhotoView sc_setImageWithURL:[Utils isValidStr:change.signPhoto] ? change.signPhoto : @"" placeHolderImage:[UIImage imageNamed:@"me_icon_head"]];
+        [observer.signedPhotoView sc_setImageWithURL:[Utils isValidStr:change.signPhoto] ? change.signPhoto : @"" placeHolderImage:[UIImage sc_imageNamed:KSCImageMineIconHead]];
         
         observer.nameLabel.text = change.name;
         
@@ -145,7 +145,7 @@
     tempView.backgroundColor = [SCColor getColor:@"ffffff"];
     _signedPhotoView = [UIImageView new];
     _signedPhotoView.contentMode = UIViewContentModeScaleAspectFit;
-    _signedPhotoView.image = [UIImage imageNamed:@"me_icon_head"];
+    _signedPhotoView.image = [UIImage sc_imageNamed:KSCImageMineIconHead];
     _signedPhotoView.layer.cornerRadius = 35;
     _signedPhotoView.layer.masksToBounds = YES;
     [tempView addSubview:_signedPhotoView];
@@ -195,7 +195,7 @@
     
     if (userInfo.accountInfo) {
         
-        [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage imageNamed:@"me_icon_head"]];
+        [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage sc_imageNamed:KSCImageMineIconHead]];
         
         _nameLabel.text = userInfo.accountInfo.name;
         

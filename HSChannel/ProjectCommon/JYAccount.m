@@ -20,6 +20,7 @@
     [encoder encodeObject:self.currentLocation forKey:@"currentLocation"];
     [encoder encodeObject:self.hxAccount forKey:@"hxAccount"];
     [encoder encodeObject:self.hxPassword forKey:@"hxPassword"];
+    [encoder encodeObject:self.token forKey:@"token"];
 }
 
 /**
@@ -34,6 +35,7 @@
         self.currentLocation = [decoder decodeObjectForKey:@"currentLocation"];
         self.hxAccount = [decoder decodeObjectForKey:@"hxAccount"];
         self.hxPassword = [decoder decodeObjectForKey:@"hxPassword"];
+        self.token = [decoder decodeObjectForKey:@"token"];
     }
     return self;
 }

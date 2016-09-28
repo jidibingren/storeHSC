@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, SCRootControllerType){
 
 + (void)setRootControllerByType:(SCRootControllerType)type;
 
++ (void)resetRootController;
+
 - (instancetype)initWithType:(SCRootControllerType)type;
 
 @end

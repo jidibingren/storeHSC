@@ -22,14 +22,14 @@
     
     [self.likeButton setTitleColor:[SCColor getColor:SC_COLOR_TEXT_3] forState:UIControlStateNormal];
     
-    [self.likeButton setImage:[UIImage imageNamed:@"moments_icon_like_normal"] forState:UIControlStateNormal];
+    [self.likeButton setImage:[UIImage sc_imageNamed:KSCImageCGOperationMenuLikeNormal] forState:UIControlStateNormal];
     
-    [self.likeButton setImage:[UIImage imageNamed:@"moments_icon_like_selected"] forState:UIControlStateSelected];
+    [self.likeButton setImage:[UIImage sc_imageNamed:KSCImageCGOperationMenuLikeSelect] forState:UIControlStateSelected];
     
     
     [self.commentButton setTitleColor:[SCColor getColor:SC_COLOR_TEXT_3] forState:UIControlStateNormal];
     
-    [self.commentButton setImage:[UIImage imageNamed:@"moments_icon_comment"] forState:UIControlStateNormal];
+    [self.commentButton setImage:[UIImage sc_imageNamed:KSCImageCGOperationMenuCommentNormal] forState:UIControlStateNormal];
     
     UIView *seperatorLine = [UIView new];
     seperatorLine.backgroundColor = [SCColor getColor:SC_COLOR_SEPARATOR_LINE];
@@ -71,9 +71,9 @@
     
     [super setViewModel:viewModel];
     
-    [self.likeButton setTitle:viewModel.likeCount > 0 ? [NSString stringWithFormat:@"(%ld)",viewModel.likeCount] : @"赞" forState:UIControlStateNormal];
+    [self.likeButton setTitle:viewModel.likeCount > 0 ? [NSString stringWithFormat:@" %ld ",viewModel.likeCount] : @"赞" forState:UIControlStateNormal];
     
-    [self.commentButton setTitle:viewModel.replyCount > 0 ? [NSString stringWithFormat:@"(%ld)",viewModel.replyCount] : @"回复" forState:UIControlStateNormal];
+    [self.commentButton setTitle:viewModel.replyCount > 0 ? [NSString stringWithFormat:@" %ld ",viewModel.replyCount] : @"回复" forState:UIControlStateNormal];
     
 }
 

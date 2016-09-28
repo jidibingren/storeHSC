@@ -86,7 +86,7 @@
         return;
     }
     
-    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.userImage] ? data.userImage : @""] placeholderImage:[UIImage imageNamed:@"message_head_default"]];
+    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.userImage] ? data.userImage : @""] placeholderImage:[UIImage sc_imageNamed:KSCImageSNDRangeCellIconHead]];
     
     _nameLabel.text = data.username;
     

@@ -30,8 +30,8 @@
     
     
     _selectBtn = [UIButton new];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_uncheck"] forState:UIControlStateNormal];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_checked"] forState:UIControlStateSelected];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactHeaderSelectButtonNormal] forState:UIControlStateNormal];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactHeaderSelectButtonSelect] forState:UIControlStateSelected];
     [tempView addSubview:_selectBtn];
     [_selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -111,8 +111,8 @@
     
     
     _selectBtn = [UIButton new];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_uncheck"] forState:UIControlStateNormal];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_checked"] forState:UIControlStateSelected];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactCellSelectButtonNormal] forState:UIControlStateNormal];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactCellSelectButtonSelect] forState:UIControlStateSelected];
     [tempView addSubview:_selectBtn];
     [_selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -180,7 +180,7 @@
     
     [_selectBtn setSelected:data.isSelected];
     
-    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.signPhoto] ? data.signPhoto : @""] placeholderImage:[UIImage imageNamed:@"connection_head_default"]];
+    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.signPhoto] ? data.signPhoto : @""] placeholderImage:[UIImage sc_imageNamed:KSCImageContactCellSignedDefault]];
     
     _nameLabel.text = data.name;
     
@@ -215,8 +215,8 @@
     
     
     _selectBtn = [UIButton new];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_uncheck"] forState:UIControlStateNormal];
-    [_selectBtn setImage:[UIImage imageNamed:@"connection_ch_checked"] forState:UIControlStateSelected];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactCellSelectButtonNormal] forState:UIControlStateNormal];
+    [_selectBtn setImage:[UIImage sc_imageNamed:KSCImageContactCellSelectButtonSelect] forState:UIControlStateSelected];
     [tempView addSubview:_selectBtn];
     [_selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(tempView);
@@ -274,7 +274,7 @@
     
     [_selectBtn setSelected:data.isSelected];
     
-    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.signPhoto] ? data.signPhoto : @""] placeholderImage:[UIImage imageNamed:@"connection_head_default"]];
+    [_signedPhotoView sd_setImageWithURL:[NSURL URLWithString:[Utils isValidStr:data.signPhoto] ? data.signPhoto : @""] placeholderImage:[UIImage sc_imageNamed:KSCImageContactCellSignedDefault]];
     
     _nameLabel.text = data.name;
     

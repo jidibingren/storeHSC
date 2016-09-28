@@ -22,9 +22,9 @@
 //        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _likeLabel = [MLLinkLabel new];
-        UIColor *highLightColor = [UIColor blueColor];
+        UIColor *highLightColor = [SCColor getColor:SC_COLOR_NAV_BG];
         _likeLabel.linkTextAttributes = @{NSForegroundColorAttributeName : highLightColor};
-        _likeLabel.activeLinkTextAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor],NSBackgroundColorAttributeName:kDefaultActiveLinkBackgroundColorForMLLinkLabel};
+        _likeLabel.activeLinkTextAttributes = @{NSForegroundColorAttributeName:highLightColor,NSBackgroundColorAttributeName:kDefaultActiveLinkBackgroundColorForMLLinkLabel};
         _likeLabel.font = [UIFont systemFontOfSize:14];
         _likeLabel.delegate = self;
         _likeLabel.numberOfLines = 0;
@@ -52,7 +52,10 @@
 //        [self.contentView addGestureRecognizer:tapG];
         
         [_likeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.bottom.equalTo(self.contentView);
+            make.top.equalTo(self.contentView);
+            make.left.equalTo(self.contentView).offset(5);
+            make.right.equalTo(self.contentView).offset(-5);
+            make.bottom.equalTo(self.contentView);
         }];
         
     }
@@ -86,7 +89,7 @@
     }
     text = [text stringByAppendingString:[NSString stringWithFormat:@"：%@", model.commentString]];
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:text];
-    UIColor *highLightColor = [UIColor blueColor];
+    UIColor *highLightColor = [SCColor getColor:SC_COLOR_NAV_BG];
     if (model.firstUserId) {
         
         [attString setAttributes:@{NSForegroundColorAttributeName : highLightColor, NSLinkAttributeName : model.firstUserId} range:[text rangeOfString:model.firstUserName]];

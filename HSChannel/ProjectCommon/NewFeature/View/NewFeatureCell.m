@@ -23,9 +23,9 @@
         UIButton *tempStartButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
         // 设置图片
-        [tempStartButton setImage:[UIImage imageNamed:@"btn_nor"]
+        [tempStartButton setImage:[UIImage sc_imageNamed:KSCImageNewFeatureCellStartButtonNormal]
                          forState:UIControlStateNormal];
-        [tempStartButton setImage:[UIImage imageNamed:@"btn_pressed"]
+        [tempStartButton setImage:[UIImage sc_imageNamed:KSCImageNewFeatureCellStartButtonPressed]
                          forState:UIControlStateHighlighted];
         
         // 尺寸自适应

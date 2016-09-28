@@ -48,7 +48,8 @@
 #define EASE_CER_NAME_PRODUCT @""
 
 // 正式服务器
-#define ONLINE_SERVER @"115.28.162.22:1881/jxt"
+#define ONLINE_SERVER @"121.42.173.94/jxt"
+//#define ONLINE_SERVER @"115.28.162.22:1881/jxt"
 //#define ONLINE_SERVER @"192.168.1.65:5050"
 //#define ONLINE_SERVER @"192.168.1.104:5050"
 #define ONLINE_SERVER2 @"api.mall.yiliangche.cn"

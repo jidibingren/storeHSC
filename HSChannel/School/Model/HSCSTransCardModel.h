@@ -10,9 +10,9 @@
 
 @interface HSCSTransCardModel : SCTableViewCellData
 
-@property (nonatomic, strong)NSString *id;
-@property (nonatomic, strong)NSString *transCard;
-@property (nonatomic, strong)NSString *name;
+@property (nonatomic, assign)long long stuId;
+@property (nonatomic, strong)NSString *stuName;
+@property (nonatomic, strong)NSString *stuCode;
 @property (nonatomic, strong)NSString *className;
 
 @end

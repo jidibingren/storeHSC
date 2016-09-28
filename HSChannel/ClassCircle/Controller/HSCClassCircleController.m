@@ -39,7 +39,7 @@
     
     NSArray *section0Data = @[
                               @{
-                                  @"leftIconName"  : @"moments_icon_times",
+                                  @"leftIconName"  : KSCImageClassSircleControllerTimes,
                                   @"leftTitle"     : @"班级动态",
                                   @"newsCount"     : @(userInfo.unreadCDCount),
                                   
@@ -48,13 +48,13 @@
     
     NSArray *section1Data = @[
                               @{
-                                  @"leftIconName"  : @"moments_icon_notice",
+                                  @"leftIconName"  : KSCImageClassSircleControllerNotice,
                                   @"leftTitle"     : @"班级通知",
                                   @"newsCount"     : @(userInfo.unreadCNCount),
                                   
                                   },
                               @{
-                                  @"leftIconName"  : @"moments_icon_work",
+                                  @"leftIconName"  : KSCImageClassSircleControllerWork,
                                   @"leftTitle"     : @"作业",
                                   @"newsCount"     : @(userInfo.unreadCWCount),
                                   
@@ -64,13 +64,13 @@
     
     NSArray *section2Data = @[
                               @{
-                                  @"leftIconName"  : @"moments_icon_attendance",
+                                  @"leftIconName"  : KSCImageClassSircleControllerAttendance,
                                   @"leftTitle"     : @"考勤",
                                   @"newsCount"     : @(userInfo.unreadCACount),
                                   
                                   },
                               @{
-                                  @"leftIconName"  : @"moments_icon_leave",
+                                  @"leftIconName"  : KSCImageClassSircleControllerLeave,
                                   @"leftTitle"     : @"请假",
                                   @"newsCount"     : @(userInfo.unreadCLCount),
                                   

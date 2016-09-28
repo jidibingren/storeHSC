@@ -21,8 +21,8 @@
 //    self.backgroundColor = [UIColor clearColor];
     
     // 添加控件
-    _likeButton = [self creatButtonWithTitle:@"赞" image:[UIImage imageNamed:@"AlbumLike"] selImage:[UIImage imageNamed:@""] target:self selector:@selector(likeButtonClicked)];
-    _commentButton = [self creatButtonWithTitle:@"评论" image:[UIImage imageNamed:@"AlbumComment"] selImage:[UIImage imageNamed:@""] target:self selector:@selector(commentButtonClicked)];
+    _likeButton = [self creatButtonWithTitle:@"赞" image:[UIImage sc_imageNamed:KSCImageOperationMenuLikeButton] selImage:[UIImage imageNamed:@""] target:self selector:@selector(likeButtonClicked)];
+    _commentButton = [self creatButtonWithTitle:@"评论" image:[UIImage sc_imageNamed:KSCImageOperationMenuCommentButton] selImage:[UIImage imageNamed:@""] target:self selector:@selector(commentButtonClicked)];
     
     _centerLine = [UIView new];
     _centerLine.backgroundColor = [UIColor grayColor];

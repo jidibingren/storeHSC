@@ -123,9 +123,9 @@
             [_overlayView addSubview:currentIndexLabel];
             
             UIButton *downloadBuSCon = [[UIButton alloc] init];
-            [downloadBuSCon setImage:[UIImage imageNamed:@"picture_download_icon"] forState:UIControlStateNormal];
-            [downloadBuSCon setImage:[[UIImage imageNamed:@"picture_download_icon"]scpb_imageWithTintColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
-            [downloadBuSCon setImage:[[UIImage imageNamed:@"picture_download_icon"]scpb_imageWithTintColor:[UIColor lightGrayColor]] forState:UIControlStateDisabled];
+            [downloadBuSCon setImage:[UIImage sc_imageNamed:KSCImagePictureBrowserDownloadNormal] forState:UIControlStateNormal];
+            [downloadBuSCon setImage:[[UIImage sc_imageNamed:KSCImagePictureBrowserDownloadHighlight]scpb_imageWithTintColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
+            [downloadBuSCon setImage:[[UIImage sc_imageNamed:KSCImagePictureBrowserDownloadDisable]scpb_imageWithTintColor:[UIColor lightGrayColor]] forState:UIControlStateDisabled];
             downloadBuSCon.exclusiveTouch = YES;
             [downloadBuSCon addTarget:self action:@selector(downloadImageToSystemBrowser:) forControlEvents:UIControlEventTouchUpInside];
             downloadBuSCon.tag = kDefaultDownloadTag;

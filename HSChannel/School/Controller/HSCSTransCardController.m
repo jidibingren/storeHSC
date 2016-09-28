@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UITextField *cardNoTextField;
 @property (nonatomic, strong) UITextField *childNameTextField;
+@property (nonatomic, assign) NSInteger    selectedIndex;
+@property (nonatomic, strong) NSMutableArray *unbindStudents;
 
 @end
 
@@ -32,6 +34,8 @@
     self.cellHeight = 45;
     
     self.separatorLineMarginLeft = SC_MARGIN_LEFT;
+    
+    self.unbindStudents = [NSMutableArray new];
     
     [super viewDidLoad];
     
@@ -53,6 +57,7 @@
 
 - (void)setupTableHeaderView{
     
+    DEFINE_WEAK(self);
     
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 136)];
     headView.backgroundColor = [SCColor getColor:@"ffffff"];
@@ -102,32 +107,86 @@
     
     _childNameTextField.userInteractionEnabled = NO;
     
+    _childNameTextField.enabled = NO;
+    
     childNameView.userInteractionEnabled = YES;
     
     [childNameView bk_whenTapped:^{
         
         NSMutableArray *names = [NSMutableArray new];
         
-        for (SCChildInfo *model in [SCUserInfo sharedInstance].children) {
-            [names addObject:model.name];
+        for (HSCSTransCardModel *model in self.unbindStudents) {
+            [names addObject:model.stuName];
         }
         
         [SCSpinner showSpinnerWithType:SCSpinnerBorderFixedWidthWithTriangle rows:names initialSelection:-1 origin:childNameView doneBlock:^(int selectedIndex, id selectedValue) {
             self.childNameTextField.text = selectedValue;
+            self.selectedIndex = selectedIndex;
         } cancel:nil];
     }];
     
-    UIImageView *rightImageView = [UIImageView new];
-    rightImageView.contentMode = UIViewContentModeScaleAspectFit;
-    rightImageView.image = [UIImage imageNamed:@"icon_select_down"];
-    rightImageView.userInteractionEnabled = YES;
-    [childNameView addSubview:rightImageView];
-    [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(childNameView);
-        make.right.mas_equalTo(childNameView).offset(SC_MARGIN_RIGHT);
-        make.height.mas_equalTo(15);
-        make.width.mas_equalTo(15);
+//    UIImageView *rightImageView = [UIImageView new];
+//    rightImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    rightImageView.image = [UIImage sc_imageNamed:KSCImageSTransCardControllerSelectDown];
+//    rightImageView.userInteractionEnabled = YES;
+//    [childNameView addSubview:rightImageView];
+//    [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(childNameView);
+//        make.right.mas_equalTo(childNameView).offset(SC_MARGIN_RIGHT);
+//        make.height.mas_equalTo(15);
+//        make.width.mas_equalTo(15);
+//        
+//    }];
+    
+    void( ^ itemCallback )(NSUInteger index, id info)  = ^(NSUInteger index, id info){
         
+        switch (index) {
+            case 0:{
+                NSMutableDictionary *params = [NSMutableDictionary new];
+                HSCSTransCardModel *model = wself.unbindStudents[wself.selectedIndex];
+                        params[@"stuId"] = @(model.stuId);
+                params[@"stuCode"] = wself.cardNoTextField.text;
+                
+                [SCHttpTool postWithURL:HSC_URL_SCHOOL_TRANSCARD_ADD params:params success:^(NSDictionary *json) {
+                    
+                    [wself.navigationController popViewControllerAnimated:YES];
+                    
+                } failure:nil];
+
+            }
+                break;
+            default:
+                
+                break;
+        }
+    };
+    
+    DTKDropdownItem *right1Item1 = [DTKDropdownItem itemWithTitle:@"绑定" callBack:itemCallback];
+    
+    NSArray *right1Items = @[right1Item1];
+    
+    DTKDropdownMenuView *dropdown = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeSelfRight frame:CGRectMake(0, 0, 60, 45) dropdownItems:right1Items icon:KSCImageSTransCardControllerSelectDown];
+    dropdown.textFont = [Utils fontWithSize:15];
+    dropdown.textColor = [SCColor getColor:SC_COLOR_BUTTON_TITLE];
+    dropdown.cellColor = [SCColor getColor:SC_COLOR_BUTTON_NORMAL];
+    dropdown.cellSeparatorColor = [SCColor getColor:SC_COLOR_BUTTON_NORMAL];
+    dropdown.cellHeight = 32;
+    dropdown.dropWidth = 80;
+    dropdown.topArrowOffset = 10;
+    dropdown.textAlignment = NSTextAlignmentCenter;
+    dropdown.cellSeparatorEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 10);
+    [tempView addSubview:dropdown];
+    [dropdown mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(childNameView);
+        make.right.mas_equalTo(tempView).offset(SC_MARGIN_RIGHT-10);
+        make.width.mas_equalTo(60);
+        make.height.mas_equalTo(45);
+    }];
+    dropdown.userInteractionEnabled = YES;
+    
+    
+    [childNameView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(dropdown.mas_left);
     }];
     
     self.tableView.tableHeaderView = headView;
@@ -186,7 +245,7 @@
     
     UIImageView *readImageView = [UIImageView new];
     readImageView.contentMode = UIViewContentModeScaleAspectFit;
-    readImageView.image = [UIImage imageNamed:@"icon_title"];
+    readImageView.image = [UIImage sc_imageNamed:KSCImageSTransCardControllerIconTitle];
     [headView addSubview:readImageView];
     [readImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(headView);
@@ -214,6 +273,41 @@
     
     params[@"page"] = @(self.pageNo);
     
+}
+
+- (void)dataReceidSuccessful:(NSDictionary *)dic newer:(BOOL)newer{
+    if (newer) {
+        [self.dataArray removeAllObjects];
+        [self.unbindStudents removeAllObjects];
+        self.pageNo = 1;
+    }
+    
+    NSArray * array = [dic valueForKeyPath: @"codeData"];
+    NSArray * unbindArray = [dic valueForKeyPath: @"noCodeData"];
+    if ([Utils isNilOrNSNull:array] || array.count == 0) {
+        [[Utils getDefaultWindow] makeShortToastAtCenter:@"没有更多了"];
+        [self endRefreshing: newer];
+        return;
+    }
+    
+    self.pageNo += 1;
+    for (NSDictionary * item in array) {
+        HSCSTransCardModel* data = [[self.cellDataClass alloc] init];
+        if ([item isKindOfClass:[NSDictionary class]]){
+            [data updateWithDictionary:item];
+            [self.dataArray addObject:data];
+        }
+    }
+    
+    for (NSDictionary * item in unbindArray) {
+        HSCSTransCardModel* data = [[self.cellDataClass alloc] init];
+        if ([item isKindOfClass:[NSDictionary class]]){
+            [data updateWithDictionary:item];
+            [self.unbindStudents addObject:data];
+        }
+    }
+    [self.tableView reloadData];
+    [self endRefreshing: newer];
 }
 
 #pragma mark - UITableViewDataSource/UITableViewDelegate
@@ -248,9 +342,16 @@
 
 -(void)deleteCellByIndexPath:(NSIndexPath *)indexPath{
     
+    HSCSTransCardModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    
     [self.dataArray removeObjectAtIndex:indexPath.row];
     
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    params[@"stuId"] = @(model.stuId);
+    
+    [SCHttpTool postWithURL:HSC_URL_SCHOOL_TRANSCARD_DEL params:params success:nil failure:nil];
     
 }
 

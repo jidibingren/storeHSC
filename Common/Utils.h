@@ -217,12 +217,12 @@
 // 实现单例所需要的方法: sharedInstance
 #define IMPLEMENT_SINGLETON() IMPLEMENT_SINGLETON_WITH_NAME(sharedInstance)
 
-#define IMPLEMENT_SINGLETON_WITH_NAME(signleName)                         \
-    +(instancetype)signleName {                                    \
-        static id instance = nil;                   \
+#define IMPLEMENT_SINGLETON_WITH_NAME(signleName)           \
+    +(instancetype)signleName {                             \
+        static id instance = nil;                           \
         static dispatch_once_t onceToken;                   \
         dispatch_once(&onceToken, ^{                        \
-            instance = [[self alloc] init];            \
+            instance = [[self alloc] init];                 \
         });                                                 \
         return instance;                                    \
     }

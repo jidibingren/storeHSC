@@ -60,7 +60,8 @@
 #import <SWPinYinHeader.h>
 #import <GDIIndexBar.h>
 
-
+#import "SCProjectInfo.h"
+#import "SCProjects.h"
 #import "SCHttpTool+ProjectEx.h"
 #import "Utils+ProjectEx.h"
 #import "SCBaseViewController+ProjectEx.h"

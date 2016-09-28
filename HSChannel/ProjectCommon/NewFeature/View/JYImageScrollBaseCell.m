@@ -40,7 +40,7 @@
 - (void)setImagePath:(NSURL *)imagePath {
     
     _imagePath = imagePath;
-    [_imageView setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed: @"Launchimage"]];
+    [_imageView setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage sc_imageNamed: KSCImageJYImageScrollBaseCellImageView]];
 }
 
 @end

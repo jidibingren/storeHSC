@@ -103,6 +103,15 @@ static SCRootViewController *rootVCType2 = nil;
     
 }
 
++ (void)resetRootController{
+    
+    dispatch_main_async_safe(^{
+        UIWindow *window = [Utils getDefaultWindow];
+        window.rootViewController = [[SCRootViewController alloc]init];
+    });
+    
+}
+
 + (SCRootViewController*)getRootControllerByType:(SCRootControllerType)type{
     
     SCRootViewController *temp = nil;
@@ -143,83 +152,73 @@ static SCRootViewController *rootVCType2 = nil;
     
 }
 
-- (void)viewDidLoad{
+- (instancetype)init{
     
-    if (_type == SCRootControllerType1) {
+    
+    if (self = [super init]) {
         
-        [SCPlusButton registerSubclassFor:self];
-        
-    }else if (_type == SCRootControllerType2) {
-        
-        [SCPlusButton2 registerSubclassFor:self];
+        [self customWithType:SCRootControllerDefault];
         
     }
-
     
+    return self;
+    
+}
+
+- (void)viewDidLoad{
+
     [super viewDidLoad];
     
 }
 
 - (void)customWithType:(SCRootControllerType)type{
-    NSArray *titles = @[@[@"消息",@"学校",@"班级圈",@"课堂",@"我的"],];
     
-    NSArray *normalImages = @[
-                              @[@"icon_message_normal",@"icon_school_normal",@"icon_moments_normal",@"icon_class_normal",@"icon_me_normal"],
-                              ];
+    NSString *boundleId = [[NSBundle mainBundle] bundleIdentifier];
     
-    NSArray *selectImages = @[
-                              @[@"icon_message_selected",@"icon_school_selected",@"icon_moments_selected",@"icon_class_selected",@"icon_me_selected"],
-                              ];
-    
-    NSDictionary *dict1 = @{
-                            CYLTabBarItemTitle : titles[type][0],
-                            CYLTabBarItemImage : normalImages[type][0],
-                            CYLTabBarItemSelectedImage : selectImages[type][0],
-                            };
-    NSDictionary *dict2 = @{
-                            CYLTabBarItemTitle : titles[type][1],
-                            CYLTabBarItemImage : normalImages[type][1],
-                            CYLTabBarItemSelectedImage : selectImages[type][1],
-                            };
-    NSDictionary *dict3 = @{
-                            CYLTabBarItemTitle : titles[type][2],
-                            CYLTabBarItemImage : normalImages[type][2],
-                            CYLTabBarItemSelectedImage : selectImages[type][2],
-                            };
-    NSDictionary *dict4 = @{
-                            CYLTabBarItemTitle : titles[type][3],
-                            CYLTabBarItemImage : normalImages[type][3],
-                            CYLTabBarItemSelectedImage : selectImages[type][3],
-                            };
-    NSDictionary *dict5 = @{
-                            CYLTabBarItemTitle : titles[type][4],
-                            CYLTabBarItemImage : normalImages[type][4],
-                            CYLTabBarItemSelectedImage : selectImages[type][4]
-                            };
-    
-    NSArray *tabBarItemsAttributes = nil;
+    NSMutableArray *tabBarItemsAttributes = [NSMutableArray new];
     NSArray *viewControllers = nil;
+    
+    NSArray *titles = [SCProjects sharedInstance].currentProject.tabbarTitles;
+    
+    NSArray *normalImages = [SCProjects sharedInstance].currentProject.tabbarNormalimages;
+    
+    NSArray *selectImages = [SCProjects sharedInstance].currentProject.tabbarSelectedimages;
+    
+    for (NSInteger i = 0; i < titles.count; i++) {
+        NSDictionary *dict = @{
+                                CYLTabBarItemTitle : titles[i],
+                                CYLTabBarItemImage : normalImages[i],
+                                CYLTabBarItemSelectedImage : selectImages[i],
+                                };
+        [tabBarItemsAttributes addObject:dict];
+    }
+    
+    
     UINavigationController *navi1 = [[UINavigationController alloc]initWithRootViewController:[HSCHomepageController new]];
     UINavigationController *navi2  = [[UINavigationController alloc]initWithRootViewController:[HSCSchoolController new]];
     UINavigationController *navi3  = [[UINavigationController alloc]initWithRootViewController:[HSCClassCircleController new]];
     UINavigationController *navi4 = [[UINavigationController alloc]initWithRootViewController:[HSCClassroomController new]];
     UINavigationController *navi5 = [[UINavigationController alloc]initWithRootViewController:[HSCMineController new]];
     
-    tabBarItemsAttributes = @[
-                              dict1,
-                              dict2,
-                              dict3,
-                              dict4,
-                              dict5
-                              ];
     
-    viewControllers = @[
-                        navi1,
-                        navi2,
-                        navi3,
-                        navi4,
-                        navi5,
-                        ];
+    if ([SCProjects sharedInstance].currentProject.type == SCProjectShuXiangYuan) {
+        
+        viewControllers = @[
+                            navi1,
+                            navi2,
+                            navi3,
+                            navi4,
+                            navi5
+                            ];
+    }else {
+        
+        viewControllers = @[
+                            navi1,
+                            navi2,
+                            navi3,
+                            navi5
+                            ];
+    }
     
     
     // 普通状态下的文字属性

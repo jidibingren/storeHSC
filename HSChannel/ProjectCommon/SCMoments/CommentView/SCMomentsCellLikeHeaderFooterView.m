@@ -32,26 +32,29 @@
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+    
+        self.backgroundColor = [SCColor getColor:@"f3f3f3"];
         
         _label = [MLLinkLabel new];
+        
         _label.numberOfLines = 0;
 //        _label.lineHeightMultiple = 1.1f;
         _label.font = [UIFont systemFontOfSize:14];
-        UIColor *highLightColor = [UIColor blueColor];
+        UIColor *highLightColor = [SCColor getColor:SC_COLOR_NAV_BG];
         _label.linkTextAttributes = @{NSForegroundColorAttributeName : highLightColor};
-        _label.activeLinkTextAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor],NSBackgroundColorAttributeName:kDefaultActiveLinkBackgroundColorForMLLinkLabel};
+        _label.activeLinkTextAttributes = @{NSForegroundColorAttributeName:highLightColor,NSBackgroundColorAttributeName:[UIColor clearColor]};
         _label.delegate = self;
         
         
-        [_label setDidClickLinkBlock:^(MLLink *link, NSString *linkText, MLLinkLabel *label) {
-            NSString *tips = [NSString stringWithFormat:@"Click\nlinkType:%ld\nlinkText:%@\nlinkValue:%@",link.linkType,linkText,link.linkValue];
-            SHOW_SIMPLE_TIPS(tips);
-        }];
-        
-        [_label setDidLongPressLinkBlock:^(MLLink *link, NSString *linkText, MLLinkLabel *label) {
-            NSString *tips = [NSString stringWithFormat:@"LongPress\nlinkType:%ld\nlinkText:%@\nlinkValue:%@",link.linkType,linkText,link.linkValue];
-            SHOW_SIMPLE_TIPS(tips);
-        }];
+//        [_label setDidClickLinkBlock:^(MLLink *link, NSString *linkText, MLLinkLabel *label) {
+//            NSString *tips = [NSString stringWithFormat:@"Click\nlinkType:%ld\nlinkText:%@\nlinkValue:%@",link.linkType,linkText,link.linkValue];
+//            SHOW_SIMPLE_TIPS(tips);
+//        }];
+//        
+//        [_label setDidLongPressLinkBlock:^(MLLink *link, NSString *linkText, MLLinkLabel *label) {
+//            NSString *tips = [NSString stringWithFormat:@"LongPress\nlinkType:%ld\nlinkText:%@\nlinkValue:%@",link.linkType,linkText,link.linkValue];
+//            SHOW_SIMPLE_TIPS(tips);
+//        }];
         
         
         _divider = [[UIImageView alloc] init];
@@ -68,7 +71,9 @@
         }];
         
         [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.top.equalTo(self.contentView);
+            make.top.equalTo(self.contentView);
+            make.left.equalTo(self.contentView).offset(5);
+            make.right.equalTo(self.contentView).offset(-5);
             make.bottom.equalTo(_divider);
         }];
         
@@ -91,7 +96,7 @@
     _likeItemsArray = likeItemsArray;
     
     NSTextAttachment *attach = [NSTextAttachment new];
-    attach.image = [UIImage imageNamed:@"Like"];
+    attach.image = [UIImage sc_imageNamed:KSCImageMomentsCellLiekHeaderFooterAttach];
     attach.bounds = CGRectMake(0, -3, 16, 16);
     NSAttributedString *likeIcon = [NSAttributedString attributedStringWithAttachment:attach];
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:likeIcon];
@@ -112,7 +117,7 @@
 {
     NSString *text = model.userName;
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:text];
-    UIColor *highLightColor = [UIColor blueColor];
+    UIColor *highLightColor = [SCColor getColor:SC_COLOR_NAV_BG];
     [attString setAttributes:@{NSForegroundColorAttributeName : highLightColor, NSLinkAttributeName : model.userId} range:[text rangeOfString:model.userName]];
     
     return attString;

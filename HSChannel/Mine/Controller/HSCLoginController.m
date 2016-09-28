@@ -115,7 +115,7 @@
                 }
                 
             } failure:^(NSError *error) {
-                //            NSLog(@"error:%@",error);
+
                 [MBProgressHUD showError:@"密码为5-18位英文字母"];
             }];
             

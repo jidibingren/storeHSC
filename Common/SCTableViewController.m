@@ -203,6 +203,9 @@
     DEFINE_WEAK(self);
     
 #ifdef SC_TP_AFNETWORKING
+    
+
+    
     [SCHttpTool postWithURL:_url params:_requestParams success:^(id json) {
         [wself dataReceidSuccessful:json newer: newer];
         wself.dataRequestedOnce = YES;

@@ -58,7 +58,8 @@ static NSString * const HeaderFooterViewIdentifier = @"SCMomentsSectionHeaderVie
     self.estimatedRowHeight = 60;
     self.rowHeight = UITableViewAutomaticDimension;
 
-    self.backgroundColor = [UIColor clearColor];
+//    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [SCColor getColor:@"f3f3f3"];
 }
 
 #pragma mark - Table view data source

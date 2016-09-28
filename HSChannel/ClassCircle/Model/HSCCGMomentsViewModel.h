@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong)NSMutableArray *commentsArray;
 
+@property (nonatomic, strong)NSMutableArray *likesArray;
+
 @end

@@ -67,7 +67,7 @@
     
     NSArray *section3Data = @[
                               @{
-                                  @"leftIconName"  : @"moments_icon_notice",
+                                  @"leftIconName"  : KSCImageClassPublishControllerNotice,
                                   @"leftTitle"     : @"班级通知",
                                   
                                   },

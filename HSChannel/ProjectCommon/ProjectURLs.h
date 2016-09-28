@@ -25,8 +25,10 @@
 #define HSC_URL_SCHOOL_NOTICE_LIST      BASEURL_HTTPS@"/action/notice/school/list"
 #define HSC_URL_SCHOOL_NEWS             [Utils fileURLAbsoluteString:@"assets/apps/famSchool/pages/schoolNews.html"]
 #define HSC_URL_SCHOOL_TEACHERS_LIST    [Utils fileURLAbsoluteString:@"assets/apps/famSchool/pages/teacher.html"]
-#define HSC_URL_SCHOOL_RECIPES_LIST     BASEURL_HTTPS@""
-#define HSC_URL_SCHOOL_TRANSCARD_LIST   BASEURL_HTTPS@"/action/transCard/list"
+#define HSC_URL_SCHOOL_RECIPES_LIST     BASEURL_HTTPS@"/action/school/food/list"
+#define HSC_URL_SCHOOL_TRANSCARD_LIST   BASEURL_HTTPS@"/action/school/transCard/list"
+#define HSC_URL_SCHOOL_TRANSCARD_ADD    BASEURL_HTTPS@"/action/school/transCard/add"
+#define HSC_URL_SCHOOL_TRANSCARD_DEL    BASEURL_HTTPS@"/action/school/transCard/del"
 
 //3.1
 #define HSC_URL_CLASS_NOTICE_LIST       BASEURL_HTTPS@"/action/notice/class/list"
@@ -34,7 +36,8 @@
 #define HSC_URL_CLASS_DYNAMICS_LIST     BASEURL_HTTPS@"/action/notice/classDynamics/list"
 #define HSC_URL_CLASS_DYNAMICS_ADD      BASEURL_HTTPS@"/action/notice/classDynamics/add"
 #define HSC_URL_CLASS_DYNAMICS_DEL      BASEURL_HTTPS@"/action/notice/classDynamics/del"
-#define HSC_URL_WORK_CHECK_LIST         BASEURL_HTTPS@"/action/work/check/list"
+#define HSC_URL_WORK_CHECK_LIST         BASEURL_HTTPS@"/action/child/checkOn/list"
+#define HSC_URL_WORK_CHECK_TEACHER_LIST BASEURL_HTTPS@"/action/child/checkOn/teacher/list"
 #define HSC_URL_PARENT_LEAVE            BASEURL_HTTPS@"/action/parent/leave"
 #define HSC_URL_CLASS_NOTICE_ADD        BASEURL_HTTPS@"/action/notice/class/add"
 #define HSC_URL_CLASS_NOTICE_DEL        BASEURL_HTTPS@"/action/notice/class/del"

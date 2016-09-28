@@ -16,8 +16,8 @@
 
 #define kSCPostNotificationNameHeadlineOther DEFINE_SCPostNotificationNameHeadline(@"SCNotificationNameHeadlineOther")
 
-#define PLACEHOLDER_IMAGE [UIImage imageNamed:@"school_pic_top"]
-#define BACKGROUND_IMAGE  [UIImage imageNamed:@"school_pic_top"]
+#define PLACEHOLDER_IMAGE [UIImage sc_imageNamed:KSCImageHeadLineCellPlaceholder]
+#define BACKGROUND_IMAGE  [UIImage sc_imageNamed:KSCImageHeadLineCellBackground]
 
 #define PAGE_CONTROL_HEIGHT  20
 #define PAGE_INDICATORTINT_COLOR [UIColor colorWithRed:255 green:255 blue:255 alpha:0.5]

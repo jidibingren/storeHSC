@@ -142,13 +142,13 @@ SC_DEFINE_ITEM_SELECTOR(SC_PRIMARY_FUNCTION_SECTION,function)
 
 - (void)refreshFunctionSection{
     NSArray *data = [self getCollectionSectionDataWith:SC_PRIMARY_FUNCTION_SECTION];
-    if (userInfo.accountInfo.userType != 1 && data.count == 6) {
-        ((SCPrimaryFunctionCellData*)data[5]).imageName = nil;
-        ((SCPrimaryFunctionCellData*)data[5]).functionName = nil;
-    }else if (data.count == 6){
-        ((SCPrimaryFunctionCellData*)data[5]).imageName = @"school_icon_cookbook";
+//    if (userInfo.accountInfo.userType != 1 && data.count == 6) {
+//        ((SCPrimaryFunctionCellData*)data[5]).imageName = nil;
+//        ((SCPrimaryFunctionCellData*)data[5]).functionName = nil;
+//    }else if (data.count == 6){
+        ((SCPrimaryFunctionCellData*)data[5]).imageName = KSCImageSchoolControllerTransCard;
         ((SCPrimaryFunctionCellData*)data[5]).functionName = NSLocalizedString(@"接送卡绑定", nil);
-    }
+//    }
     
     [self reloadCollectionCell:SC_PRIMARY_FUNCTION_SECTION row:5];
 }
@@ -268,11 +268,11 @@ SC_DEFINE_ITEM_SELECTOR(SC_PRIMARY_FUNCTION_SECTION,function)
     dicParser = [DCKeyValueObjectMapping mapperForClass:[SCPrimaryFunctionCellData class]];
     
     NSArray *functionDataArray = @[
-                                   @{@"imageName":@"school_icon_summary",          @"functionName":NSLocalizedString(@"学校简介", nil)},
-                                   @{@"imageName":@"school_icon_notice",          @"functionName":NSLocalizedString(@"学校通知", nil)},
-                                   @{@"imageName":@"school_icon_news",         @"functionName":NSLocalizedString(@"校园新闻", nil)},
-                                   @{@"imageName":@"school_icon_teacher",          @"functionName":NSLocalizedString(@"教师风采", nil)},
-                                   @{@"imageName":@"school_icon_cookbook",          @"functionName":NSLocalizedString(@"本周食谱", nil)},
+                                   @{@"imageName":KSCImageSchoolControllerSummary,          @"functionName":NSLocalizedString(@"学校简介", nil)},
+                                   @{@"imageName":KSCImageSchoolControllerNotice,          @"functionName":NSLocalizedString(@"学校通知", nil)},
+                                   @{@"imageName":KSCImageSchoolControllerNews,         @"functionName":NSLocalizedString(@"校园新闻", nil)},
+                                   @{@"imageName":KSCImageSchoolControllerTeacher,          @"functionName":NSLocalizedString(@"教师风采", nil)},
+                                   @{@"imageName":KSCImageSchoolControllerCookBook,          @"functionName":NSLocalizedString(@"本周食谱", nil)},
                                    @{@"imageName":@"",                 @"functionName":NSLocalizedString(@"", nil)}
                                    ];
     NSArray *section1DataArray = [dicParser parseArray:functionDataArray];

@@ -62,7 +62,7 @@
 //    return attrStr;
     
     NSTextAttachment *attach = [NSTextAttachment new];
-    attach.image = [UIImage imageNamed:@"Like"];
+    attach.image = [UIImage sc_imageNamed:KSCImageMomentsModelAttack];
     attach.bounds = CGRectMake(0, -3, 16, 16);
     NSAttributedString *likeIcon = [NSAttributedString attributedStringWithAttachment:attach];
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:likeIcon];

@@ -40,23 +40,23 @@
     
     NSArray *section0Data = @[
                               @{
-                                  @"leftIconName"  : @"info_icon_name",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerName,
                                   @"leftTitle"     : @"孩子姓名",
                                   @"placeholder"     : @"请选择孩子姓名",
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_password",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerPassword,
                                   @"leftTitle"     : @"修改密码",
                                   @"placeholder"     : @"请输入新密码",
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_account",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerAccount,
                                   @"leftTitle"     : @"书香源账号",
                                   @"placeholder"     : @"请输入书香源账号",
                                   @"middleText"     : @"",
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_join",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerJoin,
                                   @"leftTitle"     : @"加盟校",
                                   @"placeholder"     : @"请输入加盟校名称",
                                   },
@@ -65,31 +65,31 @@
     
     NSArray *section1Data = @[
                               @{
-                                  @"leftIconName"  : @"info_icon_local",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerLocal,
                                   @"leftTitle"     : @"地区",
                                   @"placeholder"     : @"请输入所在地区",
                                   @"middleTextEnabled":@(YES),
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_school",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerSchool,
                                   @"leftTitle"     : @"学校",
                                   @"placeholder"     : @"请输入学校名称",
                                   @"middleTextEnabled":@(YES),
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_grade",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerGrade,
                                   @"leftTitle"     : @"年级",
                                   @"placeholder"     : @"请输入年级",
                                   @"middleTextEnabled":@(YES),
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_phone",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerPhone,
                                   @"leftTitle"     : @"手机号",
                                   @"placeholder"     : @"请输入手机号",
                                   @"middleTextEnabled":@(YES),
                                   },
                               @{
-                                  @"leftIconName"  : @"info_icon_connection",
+                                  @"leftIconName"  : KSCImageMineBaseInfoControllerConnection,
                                   @"leftTitle"     : @"其他联系方式",
                                   @"placeholder"     : @"请输入其他联系方式",
                                   @"middleTextEnabled":@(YES),
@@ -137,11 +137,11 @@
     UIImageView *tempView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 120)];
     
     tempView.backgroundColor = [SCColor getColor:@"ffffff"];
-    tempView.image = [UIImage imageNamed:@"info_bg_head"];
+    tempView.image = [UIImage sc_imageNamed:KSCImageMineBaseInfoBgHead];
     tempView.userInteractionEnabled = YES;
     _signedPhotoView = [UIImageView new];
     _signedPhotoView.contentMode = UIViewContentModeScaleAspectFit;
-    _signedPhotoView.image = [UIImage imageNamed:@"info_icon_head"];
+    _signedPhotoView.image = [UIImage sc_imageNamed:KSCImageMineBaseInfoIconHead];
     _signedPhotoView.layer.cornerRadius = 35;
     _signedPhotoView.layer.masksToBounds = YES;
     [tempView addSubview:_signedPhotoView];
@@ -181,7 +181,7 @@
     
     if (userInfo.accountInfo) {
         
-        [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage imageNamed:@"info_icon_head"]];
+        [_signedPhotoView sc_setImageWithURL:[Utils isValidStr:userInfo.accountInfo.signPhoto] ? userInfo.accountInfo.signPhoto : @"" placeHolderImage:[UIImage sc_imageNamed:KSCImageMineBaseInfoIconHead]];
         
         _nameLabel.text = userInfo.accountInfo.name;
         
